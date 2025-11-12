@@ -1,0 +1,376 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent; /* Eliminar highlight al tocar en iOS */
+}
+
+:root {
+    --vh: 1vh; /* Variable para altura en móviles */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background-color: #0a0e17;
+    padding: 20px;
+    min-height: calc(var(--vh, 1vh) * 100); /* Altura dinámica para móviles */
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, #0f1525, #0a0e17);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 20, 40, 0.5);
+    border: 1px solid #1a2436;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #00f3ff;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.7);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.input-section {
+    display: flex;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 180, 255, 0.3);
+}
+
+#taskInput {
+    flex: 1;
+    padding: 12px 15px;
+    background-color: #1a2436;
+    color: #e0e0e0;
+    border: 1px solid #2a3a52;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+#taskInput:focus {
+    border-color: #00a8ff;
+    box-shadow: 0 0 10px rgba(0, 168, 255, 0.5);
+}
+
+#taskInput::placeholder {
+    color: #6b7b9c;
+}
+
+#addButton {
+    padding: 12px 20px;
+    background: linear-gradient(145deg, #00a8ff, #0097e6);
+    color: #0a0e17;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+#addButton:hover {
+    background: linear-gradient(145deg, #00f3ff, #00a8ff);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.7);
+}
+
+.filter-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 10px 18px;
+    background-color: #1a2436;
+    color: #a0b3d0;
+    border: 1px solid #2a3a52;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    background-color: #23304a;
+    color: #c0d0f0;
+    border-color: #3a4a6a;
+}
+
+.filter-btn.active {
+    background: linear-gradient(145deg, #9c27b0, #673ab7);
+    color: #ffffff;
+    border-color: #b39ddb;
+    box-shadow: 0 0 10px rgba(156, 39, 176, 0.7);
+}
+
+#taskList {
+    list-style-type: none;
+    -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #1a2436;
+    border: 1px solid #2a3a52;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.task-item:hover {
+    background-color: #23304a;
+    border-color: #3a4a6a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.task-item.completed {
+    background-color: #15202b;
+    border-color: #1e3a5a;
+}
+
+.task-item.completed .task-name {
+    text-decoration: line-through;
+    color: #6b7b9c;
+}
+
+.task-name {
+    flex: 1;
+    margin-left: 12px;
+    font-size: 16px;
+}
+
+/* Estilo personalizado para el checkbox */
+.task-item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4a5a7a;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.task-item input[type="checkbox"]:checked {
+    background-color: #00f3ff;
+    border-color: #00f3ff;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.7);
+}
+
+.task-item input[type="checkbox"]:checked::after {
+    content: "✓";
+    position: absolute;
+    color: #0a0e17;
+    font-size: 14px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.delete-btn {
+    padding: 8px 14px;
+    background: linear-gradient(145deg, #ff416c, #ff4b2b);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.delete-btn:hover {
+    background: linear-gradient(145deg, #ff6b9d, #ff6b4b);
+    box-shadow: 0 0 12px rgba(255, 65, 108, 0.7);
+}
+
+.empty-message {
+    text-align: center;
+    padding: 30px;
+    color: #6b7b9c;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #2a3a52;
+    color: #a0b3d0;
+    font-size: 14px;
+}
+
+.neon-text {
+    color: #00f3ff;
+    text-shadow: 0 0 5px rgba(0, 243, 255, 0.7);
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@keyframes pulse {
+    0% {
+        text-shadow: 0 0 10px rgba(0, 243, 255, 0.7);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(0, 243, 255, 0.9), 0 0 30px rgba(0, 243, 255, 0.6);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(0, 243, 255, 0.7);
+    }
+}
+
+/* Media Queries para Responsive Design */
+
+/* Tablets y pantallas más pequeñas */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .input-section {
+        flex-direction: column;
+        box-shadow: none;
+    }
+    
+    #taskInput {
+        border-radius: 8px 8px 0 0;
+        margin-bottom: 0;
+        font-size: 16px; /* Prevenir zoom en iOS */
+    }
+    
+    #addButton {
+        border-radius: 0 0 8px 8px;
+        padding: 12px;
+    }
+    
+    .filter-section {
+        flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+        flex: 1;
+        min-width: 100px;
+        padding: 12px 12px; /* Más alto para touch */
+        font-size: 14px;
+        min-height: 44px; /* Tamaño mínimo para elementos táctiles */
+    }
+    
+    .task-item {
+        padding: 12px;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+    
+    button, 
+    .filter-btn,
+    .task-item input[type="checkbox"] {
+        min-height: 44px; /* Tamaño mínimo para elementos táctiles */
+    }
+    
+    #addButton, 
+    .delete-btn {
+        padding: 12px 16px; /* Botones más grandes para touch */
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 15px;
+        border-radius: 10px;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
+    }
+    
+    .filter-section {
+        flex-direction: column;
+    }
+    
+    .filter-btn {
+        min-width: auto;
+    }
+    
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .task-name {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .task-actions {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .delete-btn {
+        flex: 1;
+        margin-left: 10px;
+    }
+    
+    /* Ajustes para el checkbox en móvil */
+    .task-item input[type="checkbox"] {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 800px;
+    }
+}
+
+/* Prevenir zoom en inputs en iOS */
+@media (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px; /* Prevenir zoom en iOS */
+    }
+}

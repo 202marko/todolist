@@ -1,0 +1,53 @@
+Reto modulo 2 – Practica JS
+Descripción del Ejercicio
+Crea una aplicación básica de Lista de Tareas en JavaScript que permita al usuario:
+
+Agregar tareas a una lista.
+Marcar tareas como completadas.
+Filtrar tareas completadas o pendientes.
+Eliminar tareas.
+
+Se trabajará con conceptos como variables, funciones, condicionales, ciclos, manipulación del DOM, estructuras de datos (arrays y métodos como map, filter, forEach), clases, y modularidad.
+
+Requisitos
+Declaración de Variables
+Usa let y const de manera apropiada.
+Crea una variable global para almacenar las tareas (array de objetos).
+
+Creación de Objetos y Clases
+Crea una clase Task con las propiedades:
+id: número único.
+name: nombre de la tarea.
+completed: estado de la tarea (true o false).
+Implementa un método dentro de la clase para cambiar el estado de completado.
+
+Funciones
+Implementa las siguientes funciones:
+agregarTarea(taskName): agrega una nueva tarea a la lista.
+eliminarTarea(taskId): elimina una tarea según su id.
+filtrarTareas(completadas): devuelve tareas completadas o pendientes según el argumento (true o false).
+mostrarTareas(): actualiza el DOM para mostrar la lista de tareas.
+
+Manipulación del DOM
+Usa eventos como click y manipulación del DOM para que el usuario pueda:
+Ingresar una nueva tarea en un input y agregarla con un botón.
+Mostrar las tareas en una lista dinámica (ul o div).
+Marcar tareas como completadas (usa un checkbox).
+Eliminar tareas con un botón de eliminar.
+Crea filtros con botones para "Mostrar todas", "Completadas" o "Pendientes".
+ 
+
+Uso de Métodos en Arrays
+Utiliza map, filter, y forEach para:
+Mapear tareas y mostrarlas en el DOM.
+Filtrar tareas completadas y pendientes.
+Iterar sobre la lista para actualizar estados.
+ 
+
+Scope y Hoisting
+Define funciones y variables en el ámbito adecuado: global, de bloque, o de función.
+Evita usar var (para demostrar las ventajas de let y const).
+ 
+
+Modularidad
+Separa las clases y funciones en módulos si trabajas en un entorno
